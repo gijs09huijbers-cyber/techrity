@@ -1,0 +1,16 @@
+{
+  "diensten": [
+    {
+      "titel": "Systeemoptimalisatie",
+      "beschrijving": "We analyseren en verbeteren jouw bedrijfsprocessen met behulp van machine learning."
+    },
+    {
+      "titel": "Data-analyse",
+      "beschrijving": "Techridy haalt waardevolle inzichten uit je data om strategische beslissingen te ondersteunen."
+    },
+    {
+      "titel": "Automatisering",
+      "beschrijving": "Wij helpen repetitieve taken te automatiseren zodat jouw team zich kan richten op groei."
+    }
+  ]
+}

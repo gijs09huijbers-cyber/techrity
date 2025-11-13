@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Techridy | AI-oplossingen voor bedrijven</title>
+	<link rel="stylesheet" href="style.css">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+	<header class="header">
+		<div class="logo-container">
+			<img src="logo.png" alt="Techridy logo" class="logo-img">
+			<div class="logo-text">Techridy</div>
+		</div>
+		<nav>
+			<a href="#home">Home</a>
+			<a href="#diensten">Diensten</a>
+			<a href="#contact">Contact</a>
+		</nav>
+	</header>
+
+	<section id="home" class="hero">
+		<div class="hero-content">
+			<h1>Innovatieve AI-oplossingen voor jouw bedrijf</h1>
+			<p>Techrity helpt bedrijven hun systemen te verbeteren met slimme, toekomstgerichte AI-oplossingen.</p>
+			<a href="#contact" class="btn-gradient">Neem contact op</a>
+		</div>
+	</section>
+
+	<section id="diensten" class="diensten">
+		<h2>Wat wij doen</h2>
+		<div class="diensten-grid">
+			<div class="dienst">
+				<h3>Systeemoptimalisatie</h3>
+				<p>We analyseren en verbeteren jouw bedrijfsprocessen met behulp van machine learning.</p>
+			</div>
+			<div class="dienst">
+				<h3>Data-analyse</h3>
+				<p>Techrity haalt waardevolle inzichten uit je data om strategische beslissingen te ondersteunen.</p>
+			</div>
+			<div class="dienst">
+				<h3>Automatisering</h3>
+				<p>Wij helpen repetitieve taken te automatiseren zodat jouw team zich kan richten op groei.</p>
+			</div>
+		</div>
+	</section>
+
+	<section id="contact" class="contact">
+		<h2>Contact</h2>
+		<p>Heb je vragen of wil je samenwerken? Neem gerust contact op met een van onze medewerkers:</p>
+		<ul>
+			<li><strong>Email:</strong> info@techrity.nl</li>
+			<li><strong>Telefoon:</strong> 06-12345678</li>
+			<li><strong>Contactpersoon:</strong> Gijs Huijbers</li>
+		</ul>
+	</section>
+
+	<footer class="footer">
+		<p>©2025 Techrity. Alle rechten voorbehouden.</p>
+	</footer>
+	<script>
+    // JSON inladen en weergeven
+    fetch('diensten.json')
+        .then(response => response.json())
+        .then(data => {
+            const dienstenContainer = document.querySelector('.diensten-grid');
+            dienstenContainer.innerHTML = ''; // maak het eerst leeg
+
+            data.diensten.forEach(dienst => {
+                const div = document.createElement('div');
+                div.classList.add('dienst');
+                div.innerHTML = `
+                    <h3>${dienst.titel}</h3>
+                    <p>${dienst.beschrijving}</p>
+                `;
+                dienstenContainer.appendChild(div);
+            });
+        })
+        .catch(error => console.error('Fout bij het laden van JSON:', error));
+	</script>
+
+</body>
+
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		font-family: 'Poppins', sans-serif;
+	}
+
+	body {
+		background-color: #f5f5f5;
+		color: #222;
+		line-height: 1.6;
+	}
+
+	/* ===== Header ===== */
+	.header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 20px 60px;
+		background-color: #fff;
+		box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+		position: sticky;
+		top: 0;
+		z-index: 1000;
+	}
+	/* ===== Logo-container ===== */
+	.logo-container {
+		display: flex;
+		align-items: center;
+		gap: 10px; /* ruimte tussen logo en tekst */
+	}
+
+	.logo-img {
+		height: 40px; /* pas dit aan naar wens, bv. 30-50px */
+		width: auto;
+	}
+
+	.logo-text {
+		font-weight: 700;
+		font-size: 1.5em;
+		background: linear-gradient(90deg, #7b2ff7, #fbd72b);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+
+	nav a {
+		text-decoration: none;
+		color: #333;
+		margin-left: 25px;
+		font-weight: 500;
+		transition: color 0.3s;
+	}
+
+		nav a:hover {
+			color: #7b2ff7;
+		}
+
+	/* ===== Hero-sectie ===== */
+	.hero {
+		background: linear-gradient(120deg, #7b2ff7, #fbd72b);
+		color: white;
+		text-align: center;
+		padding: 120px 20px;
+	}
+
+	.hero-content {
+		max-width: 800px;
+		margin: auto;
+	}
+
+	.hero h1 {
+		font-size: 2.5em;
+		margin-bottom: 20px;
+	}
+
+	.hero p {
+		font-size: 1.1em;
+		margin-bottom: 30px;
+	}
+
+	.btn-gradient {
+		background: white;
+		color: #7b2ff7;
+		padding: 12px 25px;
+		border-radius: 30px;
+		text-decoration: none;
+		font-weight: 600;
+		transition: all 0.3s ease;
+	}
+
+		.btn-gradient:hover {
+			background: #7b2ff7;
+			color: white;
+		}
+
+	/* ===== Diensten ===== */
+	.diensten {
+		padding: 80px 20px;
+		text-align: center;
+		background-color: #fff;
+	}
+
+		.diensten h2 {
+			font-size: 2em;
+			margin-bottom: 40px;
+		}
+
+	.diensten-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 30px;
+		max-width: 1000px;
+		margin: auto;
+	}
+
+	.dienst {
+		background-color: #f9f9f9;
+		padding: 25px;
+		border-radius: 12px;
+		box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+		transition: transform 0.3s;
+	}
+
+		.dienst:hover {
+			transform: translateY(-5px);
+		}
+
+	/* ===== Contact ===== */
+	.contact {
+		padding: 80px 20px;
+		background-color: #f5f5f5;
+		text-align: center;
+	}
+
+		.contact ul {
+			list-style: none;
+			margin-top: 20px;
+		}
+
+		.contact li {
+			margin: 8px 0;
+		}
+
+	/* ===== Footer ===== */
+	.footer {
+		background-color: #111;
+		color: white;
+		text-align: center;
+		padding: 20px;
+		font-size: 0.9em;
+	}
+</style>
+</html>
+
